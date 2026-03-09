@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeliosAstro — Astrologie héliocentrique</title>
+  <meta name="description" content="HeliosAstro : astrologie héliocentrique, géométrie sacrée, logiciel astrologique et analyses personnalisées." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="HeliosAstro" />
+  <meta property="og:description" content="Astrologie héliocentrique, logiciel astrologique, géométrie sacrée." />
+  <meta property="og:image" content="images/og-image.jpg" />
+  <meta name="theme-color" content="#0b0b0f" />
+
+  <style>
+    :root{
+      --bg:#07090f;
+      --bg2:#121a33;
+      --panel:#12192d;
+      --panel2:#0c1120;
+      --line:rgba(255,255,255,.08);
+      --text:#f5f7fb;
+      --muted:#aab3c5;
+      --gold:#ffb24b;
+      --gold2:#ffdd8f;
+      --shadow:0 20px 50px rgba(0,0,0,.35);
+      --radius:24px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top, rgba(63,85,160,.30) 0%, rgba(7,9,15,0) 32%),
+        linear-gradient(180deg,var(--bg2),var(--bg));
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 18px;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:40;
+      background:rgba(7,9,15,.90);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+    }
+
+    .brand img{
+      width:74px;
+      height:74px;
+      object-fit:contain;
+      border-radius:18px;
+      background:#000;
+      border:1px solid rgba(255,255,255,.12);
+      padding:6px;
+      box-shadow:0 12px 30px rgba(0,0,0,.35);
+    }
+
+    .brand-title{
+      font-size:26px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      line-height:1;
+    }
+
+    .brand-sub{
+      margin-top:6px;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .menu{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .menu a{
+      color:var(--gold2);
+      font-weight:800;
+      font-size:14px;
+    }
+
+    .hero{
+      padding:36px 0 22px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:22px;
+      align-items:center;
+    }
+
+    .card{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card{
+      padding:30px;
+    }
+
+    .badge{
+      display:inline-block;
+      margin-bottom:14px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,221,143,.25);
+      color:var(--gold2);
+      font-size:12px;
+      font-weight:800;
+    }
+
+    h1,h2,h3{margin:0}
+
+    .hero h1{
+      font-size:54px;
+      line-height:1.02;
+      margin-bottom:14px;
+    }
+
+    .hero p{
+      font-size:18px;
+      line-height:1.7;
+      margin:0 0 18px;
+      color:var(--muted);
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:13px 20px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:14px;
+    }
+
+    .btn-primary{
+      background:var(--gold);
+      color:#111;
+    }
+
+    .btn-secondary{
+      border:1px solid rgba(255,221,143,.45);
+      color:var(--gold2);
+    }
+
+    .visual{
+      padding:14px;
+    }
+
+    .visual img{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .section{
+      padding:28px 0;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .offer{
+      padding:22px;
+    }
+
+    .offer small{
+      display:block;
+      margin-bottom:8px;
+      color:var(--gold2);
+      font-weight:800;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    .offer h3{
+      font-size:24px;
+      margin-bottom:8px;
+    }
+
+    .offer p{
+      line-height:1.7;
+      color:var(--muted);
+      margin:0;
+    }
+
+    .showcase{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .show-card{
+      overflow:hidden;
+    }
+
+    .show-card .media{
+      height:520px;
+      padding:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.02);
+    }
+
+    .show-card img{
+      max-width:100%;
+      max-height:100%;
+      width:auto;
+      height:auto;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .show-card .body{
+      padding:14px 16px 18px;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    .show-card .title{
+      font-size:18px;
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .show-card .meta{
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .book{
+      display:grid;
+      grid-template-columns:260px 1fr;
+      gap:22px;
+      align-items:start;
+      padding:24px;
+    }
+
+    .book img{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .book p{
+      line-height:1.7;
+      color:var(--muted);
+      margin:12px 0 18px;
+    }
+
+    footer{
+      margin-top:30px;
+      padding:26px 0 36px;
+      color:#8e97aa;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    @media (max-width:980px){
+      .hero-grid,
+      .grid-3,
+      .showcase,
+      .book{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:40px;
+      }
+
+      .show-card .media{
+        height:420px;
+      }
+    }
+
+    @media (max-width:720px){
+      .brand img{
+        width:60px;
+        height:60px;
+      }
+
+      .brand-title{
+        font-size:20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <img src="./logo-heliosastro.png" alt="Logo HeliosAstro">
+          <div>
+            <div class="brand-title">HeliosAstro</div>
+            <div class="brand-sub">Astrologie héliocentrique • Géométrie sacrée • Analyse avancée</div>
+          </div>
+        </div>
+
+        <nav class="menu">
+          <a href="index.html">Accueil</a>
+          <a href="logiciel.html">Logiciel</a>
+          <a href="offres.html">Offres</a>
+          <a href="livre.html">Livre</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="card hero-card">
+          <div class="badge">Analyses personnalisées • Logiciel astrologique • Univers HeliosAstro</div>
+          <h1>Une vitrine professionnelle pour HeliosAstro</h1>
+          <p>
+            Astrologie héliocentrique, géométrie sacrée, visualisation zodiacale,
+            logiciel astrologique et contenus éditoriaux réunis dans une interface claire,
+            élégante et exploitable.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="logiciel.html">Ouvrir le logiciel</a>
+            <a class="btn btn-secondary" href="offres.html">Voir les offres</a>
+          </div>
+        </div>
+
+        <div class="card visual">
+          <img src="images/mandala-sacree.png" alt="Mandala sacré HeliosAstro">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid-3">
+        <article class="card offer">
+          <small>Analyse</small>
+          <h3>Transit astrologique</h3>
+          <p>Étude ciblée des influences planétaires sur les 3 prochains mois.</p>
+        </article>
+
+        <article class="card offer">
+          <small>Annuel</small>
+          <h3>Révolution solaire</h3>
+          <p>Lecture annuelle complète autour du retour solaire et des grandes tendances.</p>
+        </article>
+
+        <article class="card offer">
+          <small>Outil</small>
+          <h3>Logiciel HeliosAstro</h3>
+          <p>Visualisation zodiacale, base de thème, glyphes planétaires et export graphique pour la présentation.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 style="margin-bottom:16px">Exemples visuels</h2>
+
+      <div class="showcase">
+        <article class="card show-card">
+          <div class="media">
+            <img src="images/rihanna-exemple.png" alt="Exemple de thème astral Rihanna">
+          </div>
+          <div class="body">
+            <div class="title">Exemple — thème astral Rihanna</div>
+            <div class="meta">Exemple visuel de présentation astrologique HeliosAstro.</div>
+          </div>
+        </article>
+
+        <article class="card show-card">
+          <div class="media">
+            <img src="images/theme-paris-03062025.png" alt="Thème astral Paris 03/06/2025 22:00">
+          </div>
+          <div class="body">
+            <div class="title">Exemple — thème astral personnalisé</div>
+            <div class="meta">
+              Paris — 03/06/2025 à 22:00<br>
+              Planètes placées à l’extérieur avec lecture visuelle sur la roue zodiacale.
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="card book">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3kU5wmsv3hlNtbIUQ_NWfEqld0-z1d4P7DiZdtY-VoVE2LKwvBXuUOCSpT5Bhe_8l9_kvYm_BBGjvNXoPJRNftegM9P3MUWl38PchpuGuo77jkxKJ8E3u02q-XJOLnFP9DstQHApJLvM/s900/cover.jpg" alt="Livre Dieu est la lumière">
+        <div>
+          <h2>Dieu est la lumière — Géométrie sacrée</h2>
+          <p>
+            Page dédiée au livre, à son univers visuel et à sa présentation commerciale,
+            avec navigation fluide et image de couverture visible.
+          </p>
+          <a class="btn btn-primary" href="livre.html">Voir la page livre</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © HeliosAstro — astrologie, logiciel, géométrie sacrée
+  </footer>
+
+</body>
+</html>
