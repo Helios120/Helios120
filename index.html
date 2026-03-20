@@ -3,13 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HeliosAstro — Astrologie héliocentrique</title>
-  <meta name="description" content="HeliosAstro : astrologie héliocentrique, géométrie sacrée, logiciel astrologique et analyses personnalisées." />
+  <title>HeliosAstro — astrologie héliocentrique, géométrie sacrée et logiciel astrologique</title>
+  <meta name="description" content="HeliosAstro : astrologie héliocentrique, géométrie sacrée, logiciel astrologique, thèmes personnalisés et univers visuel sacré." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="HeliosAstro" />
-  <meta property="og:description" content="Astrologie héliocentrique, logiciel astrologique, géométrie sacrée." />
-  <meta property="og:image" content="images/og-image.jpg" />
+  <meta property="og:title" content="HeliosAstro — astrologie héliocentrique et logiciel astrologique" />
+  <meta property="og:description" content="Astrologie héliocentrique, géométrie sacrée, logiciel astrologique et thèmes personnalisés." />
+  <meta property="og:url" content="https://heliosastro.com/" />
+  <meta property="og:image" content="https://heliosastro.com/images/og-image.jpg" />
   <meta name="theme-color" content="#0b0b0f" />
+  <link rel="canonical" href="https://heliosastro.com/" />
+  <link rel="preload" as="image" href="logo-heliosastro.png" />
+  <link rel="preload" as="image" href="images/mandala-sacree.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"HeliosAstro",
+    "url":"https://heliosastro.com",
+    "logo":"https://heliosastro.com/logo-heliosastro.png"
+  }
+  </script>
 
   <style>
     :root{
@@ -32,7 +46,7 @@
 
     body{
       margin:0;
-      font-family:Arial, Helvetica, sans-serif;
+      font-family:Arial,Helvetica,sans-serif;
       color:var(--text);
       background:
         radial-gradient(circle at top, rgba(63,85,160,.30) 0%, rgba(7,9,15,0) 32%),
@@ -41,12 +55,7 @@
 
     a{text-decoration:none;color:inherit}
     img{display:block;max-width:100%}
-
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:0 18px;
-    }
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
 
     .topbar{
       position:sticky;
@@ -73,7 +82,7 @@
       min-width:0;
     }
 
-    .brand img{
+    .site-logo{
       width:74px;
       height:74px;
       object-fit:contain;
@@ -82,6 +91,7 @@
       border:1px solid rgba(255,255,255,.12);
       padding:6px;
       box-shadow:0 12px 30px rgba(0,0,0,.35);
+      flex:0 0 auto;
     }
 
     .brand-title{
@@ -146,8 +156,8 @@
     h1,h2,h3{margin:0}
 
     .hero h1{
-      font-size:54px;
-      line-height:1.02;
+      font-size:52px;
+      line-height:1.05;
       margin-bottom:14px;
     }
 
@@ -162,6 +172,7 @@
       display:flex;
       gap:12px;
       flex-wrap:wrap;
+      margin-top:18px;
     }
 
     .btn{
@@ -170,6 +181,12 @@
       border-radius:999px;
       font-weight:900;
       font-size:14px;
+      transition:transform .15s ease, opacity .15s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      opacity:.96;
     }
 
     .btn-primary{
@@ -189,6 +206,8 @@
     .visual img{
       border-radius:18px;
       border:1px solid rgba(255,255,255,.08);
+      width:100%;
+      height:auto;
     }
 
     .section{
@@ -225,9 +244,9 @@
       margin:0;
     }
 
-    .showcase{
+    .showcase-grid{
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns:repeat(2,1fr);
       gap:18px;
     }
 
@@ -236,7 +255,7 @@
     }
 
     .show-card .media{
-      height:520px;
+      height:460px;
       padding:14px;
       display:flex;
       align-items:center;
@@ -266,6 +285,54 @@
 
     .show-card .meta{
       font-size:14px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .paypal-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .paypal-card{
+      padding:24px;
+    }
+
+    .price{
+      font-size:34px;
+      font-weight:900;
+      color:var(--gold2);
+      margin:10px 0 14px;
+    }
+
+    .paypal-card p{
+      color:var(--muted);
+      line-height:1.7;
+      margin:0 0 18px;
+    }
+
+    .btn-paypal{
+      width:100%;
+      padding:14px;
+      border-radius:999px;
+      border:none;
+      background:#ffc439;
+      color:#111;
+      font-weight:900;
+      font-size:14px;
+      cursor:pointer;
+      transition:background .15s ease, transform .15s ease;
+    }
+
+    .btn-paypal:hover{
+      background:#ffb800;
+      transform:translateY(-1px);
+    }
+
+    .paypal-help{
+      margin-top:12px;
+      font-size:13px;
       color:var(--muted);
       line-height:1.6;
     }
@@ -300,7 +367,8 @@
     @media (max-width:980px){
       .hero-grid,
       .grid-3,
-      .showcase,
+      .showcase-grid,
+      .paypal-grid,
       .book{
         grid-template-columns:1fr;
       }
@@ -308,20 +376,28 @@
       .hero h1{
         font-size:40px;
       }
-
-      .show-card .media{
-        height:420px;
-      }
     }
 
     @media (max-width:720px){
-      .brand img{
+      .site-logo{
         width:60px;
         height:60px;
       }
 
       .brand-title{
         font-size:20px;
+      }
+
+      .brand-sub{
+        font-size:11px;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+
+      .hero p{
+        font-size:16px;
       }
     }
   </style>
@@ -332,7 +408,7 @@
     <div class="wrap">
       <div class="nav">
         <div class="brand">
-          <img src="./logo-heliosastro.png" alt="Logo HeliosAstro">
+          <img src="./logo-heliosastro.png" alt="Logo HeliosAstro" class="site-logo" width="74" height="74">
           <div>
             <div class="brand-title">HeliosAstro</div>
             <div class="brand-sub">Astrologie héliocentrique • Géométrie sacrée • Analyse avancée</div>
@@ -340,7 +416,7 @@
         </div>
 
         <nav class="menu">
-          <a href="index.html">Accueil</a>
+          <a href="/">Accueil</a>
           <a href="logiciel.html">Logiciel</a>
           <a href="offres.html">Offres</a>
           <a href="livre.html">Livre</a>
@@ -355,11 +431,10 @@
       <div class="hero-grid">
         <div class="card hero-card">
           <div class="badge">Analyses personnalisées • Logiciel astrologique • Univers HeliosAstro</div>
-          <h1>Une vitrine professionnelle pour HeliosAstro</h1>
+          <h1>HeliosAstro réunit astrologie, géométrie sacrée et visualisation avancée dans un même espace</h1>
           <p>
-            Astrologie héliocentrique, géométrie sacrée, visualisation zodiacale,
-            logiciel astrologique et contenus éditoriaux réunis dans une interface claire,
-            élégante et exploitable.
+            Une approche visuelle et structurée de l’astrologie héliocentrique,
+            pensée pour l’analyse, l’exploration symbolique et la présentation de thèmes personnalisés.
           </p>
 
           <div class="actions">
@@ -369,7 +444,7 @@
         </div>
 
         <div class="card visual">
-          <img src="images/mandala-sacree.png" alt="Mandala sacré HeliosAstro">
+          <img src="images/mandala-sacree.png" alt="Mandala sacré HeliosAstro" loading="eager" width="1200" height="1200">
         </div>
       </div>
     </div>
@@ -403,10 +478,10 @@
     <div class="wrap">
       <h2 style="margin-bottom:16px">Exemples visuels</h2>
 
-      <div class="showcase">
+      <div class="showcase-grid">
         <article class="card show-card">
           <div class="media">
-            <img src="images/rihanna-exemple.png" alt="Exemple de thème astral Rihanna">
+            <img src="images/rihanna-exemple.png" alt="Exemple de thème astral Rihanna" loading="lazy" width="900" height="900">
           </div>
           <div class="body">
             <div class="title">Exemple — thème astral Rihanna</div>
@@ -416,14 +491,31 @@
 
         <article class="card show-card">
           <div class="media">
-            <img src="images/theme-paris-03062025.png" alt="Thème astral Paris 03/06/2025 22:00">
+            <img src="images/theme-paris-03062025.png" alt="Thème astral Paris 03 juin 2025 à 22h" loading="lazy" width="900" height="900">
           </div>
           <div class="body">
             <div class="title">Exemple — thème astral personnalisé</div>
-            <div class="meta">
-              Paris — 03/06/2025 à 22:00<br>
-              Planètes placées à l’extérieur avec lecture visuelle sur la roue zodiacale.
-            </div>
+            <div class="meta">Paris — 03/06/2025 à 22:00. Planètes placées à l’extérieur avec lecture visuelle sur la roue zodiacale.</div>
+          </div>
+        </article>
+
+        <article class="card show-card">
+          <div class="media">
+            <img src="images/zodiaque-modele.png" alt="Modèle zodiacal HeliosAstro" loading="lazy" width="900" height="900">
+          </div>
+          <div class="body">
+            <div class="title">Modèle zodiacal</div>
+            <div class="meta">Roue zodiacale utilisée comme base graphique du logiciel.</div>
+          </div>
+        </article>
+
+        <article class="card show-card">
+          <div class="media">
+            <img src="images/og-image.jpg" alt="Univers visuel HeliosAstro" loading="lazy" width="1200" height="630">
+          </div>
+          <div class="body">
+            <div class="title">Univers HeliosAstro</div>
+            <div class="meta">Visuel de marque pour partage social, aperçu Google et identité visuelle.</div>
           </div>
         </article>
       </div>
@@ -432,15 +524,77 @@
 
   <section class="section">
     <div class="wrap">
+      <h2 style="margin-bottom:16px">Paiement sécurisé</h2>
+
+      <div class="paypal-grid">
+
+        <article class="card paypal-card">
+          <small style="color:var(--gold2);font-weight:800;text-transform:uppercase;letter-spacing:1px;">Transit</small>
+          <h3>Transit astrologique 3 mois</h3>
+          <div class="price">25€</div>
+          <p>Analyse ciblée des influences planétaires sur 3 mois.</p>
+
+          <form action="https://www.paypal.com/ncp/cart" method="post">
+            <input type="hidden" name="business" value="BTHYMAJN4UULE">
+            <input type="hidden" name="item_name" value="Transit astrologique 3 mois">
+            <input type="hidden" name="amount" value="25.00">
+            <input type="hidden" name="currency_code" value="EUR">
+            <button type="submit" class="btn-paypal">Payer avec PayPal</button>
+          </form>
+        </article>
+
+        <article class="card paypal-card">
+          <small style="color:var(--gold2);font-weight:800;text-transform:uppercase;letter-spacing:1px;">Annuel</small>
+          <h3>Révolution solaire</h3>
+          <div class="price">35€</div>
+          <p>Lecture annuelle complète autour du retour solaire.</p>
+
+          <form action="https://www.paypal.com/ncp/cart" method="post">
+            <input type="hidden" name="business" value="BTHYMAJN4UULE">
+            <input type="hidden" name="item_name" value="Révolution solaire">
+            <input type="hidden" name="amount" value="35.00">
+            <input type="hidden" name="currency_code" value="EUR">
+            <button type="submit" class="btn-paypal">Payer avec PayPal</button>
+          </form>
+        </article>
+
+        <article class="card paypal-card">
+          <small style="color:var(--gold2);font-weight:800;text-transform:uppercase;letter-spacing:1px;">Complet</small>
+          <h3>Thème astral complet</h3>
+          <div class="price">59€</div>
+          <p>Étude complète de thème astral avec lecture approfondie.</p>
+
+          <form action="https://www.paypal.com/ncp/cart" method="post">
+            <input type="hidden" name="business" value="BTHYMAJN4UULE">
+            <input type="hidden" name="item_name" value="Thème astral complet">
+            <input type="hidden" name="amount" value="59.00">
+            <input type="hidden" name="currency_code" value="EUR">
+            <button type="submit" class="btn-paypal">Payer avec PayPal</button>
+          </form>
+        </article>
+
+      </div>
+
+      <p class="paypal-help">
+        Après paiement, merci d’envoyer votre nom, votre date, votre heure et votre lieu de naissance à
+        <strong>heliosphotonic@gmail.com</strong>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
       <div class="card book">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3kU5wmsv3hlNtbIUQ_NWfEqld0-z1d4P7DiZdtY-VoVE2LKwvBXuUOCSpT5Bhe_8l9_kvYm_BBGjvNXoPJRNftegM9P3MUWl38PchpuGuo77jkxKJ8E3u02q-XJOLnFP9DstQHApJLvM/s900/cover.jpg" alt="Livre Dieu est la lumière">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3kU5wmsv3hlNtbIUQ_NWfEqld0-z1d4P7DiZdtY-VoVE2LKwvBXuUOCSpT5Bhe_8l9_kvYm_BBGjvNXoPJRNftegM9P3MUWl38PchpuGuo77jkxKJ8E3u02q-XJOLnFP9DstQHApJLvM/s900/cover.jpg" alt="Livre Dieu est la lumière — Géométrie sacrée" loading="lazy">
         <div>
           <h2>Dieu est la lumière — Géométrie sacrée</h2>
           <p>
-            Page dédiée au livre, à son univers visuel et à sa présentation commerciale,
-            avec navigation fluide et image de couverture visible.
+            Découvre le livre dans l’univers HeliosAstro, avec accès direct à la FNAC, à Kobo et à la page dédiée du site.
           </p>
-          <a class="btn btn-primary" href="livre.html">Voir la page livre</a>
+          <div class="actions">
+            <a class="btn btn-primary" href="livre.html">Voir la page livre</a>
+            <a class="btn btn-secondary" href="https://www.fnac.com/livre-numerique/a15115711/Tafani-Thierry-Dieu-est-la-lumiere" target="_blank" rel="noopener noreferrer">Acheter sur FNAC</a>
+          </div>
         </div>
       </div>
     </div>
@@ -450,5 +604,8 @@
     © HeliosAstro — astrologie, logiciel, géométrie sacrée
   </footer>
 
+  <script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="BTHYMAJN4UULE"></script>
+
 </body>
 </html>
+
