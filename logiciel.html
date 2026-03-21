@@ -3,55 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HeliosAstro — Logiciel astrologique</title>
-  <meta name="description" content="Logiciel astrologique HeliosAstro avec roue zodiacale, positions planétaires et export SVG." />
+  <title>Logiciel astrologique | HeliosAstro</title>
+  <meta name="description" content="Logiciel astrologique HeliosAstro avec roue zodiacale, positions planétaires visuelles et export PNG." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="HeliosAstro — Logiciel astrologique" />
-  <meta property="og:description" content="Visualisation zodiacale, thème astral, planètes et export graphique." />
-  <meta property="og:image" content="images/og-image.jpg" />
+  <meta property="og:title" content="Logiciel astrologique | HeliosAstro" />
+  <meta property="og:description" content="Visualisation astrologique HeliosAstro avec roue zodiacale et positions planétaires." />
+  <meta property="og:image" content="https://heliosastro.com/images/og-image.jpg" />
+  <meta property="og:url" content="https://heliosastro.com/logiciel.html" />
   <meta name="theme-color" content="#0b0b0f" />
+  <link rel="canonical" href="https://heliosastro.com/logiciel.html" />
 
   <style>
     :root{
-      --bg:#06070b;
-      --bg2:#1b2342;
-      --panel:#111522;
-      --panel2:#0b0f1a;
-      --text:#f4f6fb;
-      --muted:#9ea8bb;
-      --gold:#f5b04c;
-      --gold2:#ffda6b;
-      --line:rgba(255,255,255,.08);
-      --shadow:0 18px 40px rgba(0,0,0,.35);
-      --radius:22px;
+      --bg:#05070f;
+      --bg2:#131b34;
+      --panel:#111728;
+      --panel2:#0b1020;
+      --line:rgba(255,255,255,.10);
+      --text:#f5f7fb;
+      --muted:#aab3c5;
+      --gold:#ffb24b;
+      --gold2:#ffdd8f;
+      --shadow:0 20px 50px rgba(0,0,0,.35);
+      --radius:24px;
       --max:1280px;
     }
 
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(63,85,160,.30) 0%, rgba(6,7,11,0) 28%),
-        linear-gradient(180deg,var(--bg2),var(--bg));
+      font-family:Arial,Helvetica,sans-serif;
       color:var(--text);
+      background:
+        radial-gradient(circle at top, rgba(63,85,160,.28) 0%, rgba(7,9,15,0) 30%),
+        linear-gradient(180deg,var(--bg2),var(--bg));
     }
 
     a{text-decoration:none;color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
 
     .topbar{
       position:sticky;
       top:0;
       z-index:50;
-      background:rgba(6,7,11,.88);
+      background:rgba(7,9,15,.92);
       backdrop-filter:blur(10px);
       border-bottom:1px solid rgba(255,255,255,.06);
-    }
-
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:0 18px;
     }
 
     .nav{
@@ -59,8 +56,8 @@
       justify-content:space-between;
       align-items:center;
       gap:18px;
-      padding:14px 0;
       flex-wrap:wrap;
+      padding:14px 0;
     }
 
     .brand{
@@ -70,7 +67,7 @@
       min-width:0;
     }
 
-    .brand img{
+    .site-logo{
       width:74px;
       height:74px;
       object-fit:contain;
@@ -79,6 +76,7 @@
       border:1px solid rgba(255,255,255,.12);
       padding:6px;
       box-shadow:0 12px 30px rgba(0,0,0,.35);
+      flex:0 0 auto;
     }
 
     .brand-title{
@@ -107,46 +105,54 @@
       font-size:14px;
     }
 
-    .hero{
-      padding:28px 0 10px;
+    .page{
+      padding:28px 0 34px;
     }
 
-    .hero h1{
+    .intro{
+      margin-bottom:20px;
+      padding:24px;
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .intro h1{
       margin:0 0 10px;
       font-size:42px;
     }
 
-    .hero p{
+    .intro p{
       margin:0;
       color:var(--muted);
-      line-height:1.7;
-      max-width:920px;
+      line-height:1.75;
+      max-width:980px;
     }
 
     .layout{
       display:grid;
       grid-template-columns:360px 1fr;
       gap:18px;
-      margin:24px 0 32px;
     }
 
     .panel{
       background:linear-gradient(180deg,var(--panel),var(--panel2));
       border:1px solid var(--line);
       border-radius:var(--radius);
-      padding:20px;
       box-shadow:var(--shadow);
+      padding:22px;
     }
 
     .panel h2{
-      margin:0 0 12px;
+      margin:0 0 10px;
       font-size:24px;
     }
 
     .sub{
-      margin:0 0 14px;
-      color:var(--muted);
+      margin:0 0 16px;
       font-size:13px;
+      color:var(--muted);
       line-height:1.6;
     }
 
@@ -172,9 +178,7 @@
       gap:8px;
     }
 
-    .row > div{
-      flex:1;
-    }
+    .row > div{flex:1}
 
     .buttons{
       display:flex;
@@ -190,6 +194,12 @@
       font-size:14px;
       font-weight:900;
       cursor:pointer;
+      transition:transform .15s ease, opacity .15s ease;
+    }
+
+    button:hover{
+      transform:translateY(-1px);
+      opacity:.96;
     }
 
     .btn-primary{
@@ -199,11 +209,11 @@
 
     .btn-ghost{
       background:transparent;
+      border:1px solid rgba(255,221,143,.45);
       color:var(--gold2);
-      border:1px solid rgba(255,218,107,.45);
     }
 
-    .meta{
+    .status{
       margin-top:14px;
       color:var(--muted);
       font-size:13px;
@@ -221,20 +231,19 @@
       border:1px solid rgba(255,255,255,.08);
     }
 
-    svg{
-      width:100%;
-      height:100%;
-      max-width:940px;
-      max-height:940px;
+    canvas{
       display:block;
+      width:100%;
+      max-width:940px;
+      aspect-ratio:1/1;
       background:#000;
     }
 
     .tablewrap{
+      margin-top:16px;
       overflow:auto;
       border:1px solid rgba(255,255,255,.08);
       border-radius:14px;
-      margin-top:16px;
     }
 
     table{
@@ -278,36 +287,16 @@
     }
 
     @media (max-width:1080px){
-      .layout{
-        grid-template-columns:1fr;
-      }
-
-      .chartbox{
-        min-height:700px;
-      }
-
-      .legend{
-        grid-template-columns:repeat(2,1fr);
-      }
+      .layout{grid-template-columns:1fr}
+      .chartbox{min-height:700px}
+      .legend{grid-template-columns:repeat(2,1fr)}
     }
 
     @media (max-width:720px){
-      .brand img{
-        width:60px;
-        height:60px;
-      }
-
-      .brand-title{
-        font-size:20px;
-      }
-
-      .hero h1{
-        font-size:32px;
-      }
-
-      .legend{
-        grid-template-columns:1fr;
-      }
+      .site-logo{width:60px;height:60px}
+      .brand-title{font-size:20px}
+      .intro h1{font-size:32px}
+      .legend{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -317,7 +306,7 @@
     <div class="wrap">
       <div class="nav">
         <div class="brand">
-          <img src="./logo-heliosastro.png" alt="Logo HeliosAstro">
+          <img src="./logo-heliosastro.png" alt="Logo HeliosAstro" class="site-logo" width="74" height="74">
           <div>
             <div class="brand-title">HeliosAstro</div>
             <div class="brand-sub">Astrologie héliocentrique • Géométrie sacrée • Analyse avancée</div>
@@ -325,7 +314,7 @@
         </div>
 
         <nav class="menu">
-          <a href="index.html">Accueil</a>
+          <a href="/">Accueil</a>
           <a href="offres.html">Offres</a>
           <a href="livre.html">Livre</a>
           <a href="contact.html">Contact</a>
@@ -334,21 +323,26 @@
     </div>
   </div>
 
-  <section class="hero">
+  <section class="page">
     <div class="wrap">
-      <h1>Logiciel astrologique</h1>
-      <p>
-        Version stable, propre et lisible : fond zodiacal en image, planètes colorées à l’extérieur,
-        lecture des positions, et export SVG. Le logo HeliosAstro reste intégré en haut à gauche.
-      </p>
+
+      <div class="intro">
+        <h1>Logiciel astrologique HeliosAstro</h1>
+        <p>
+          Version avancée, stable et lisible : ton zodiaque reste au centre, les planètes sont positionnées autour,
+          les degrés sont affichés proprement, et l’ensemble peut être exporté en PNG.
+        </p>
+      </div>
 
       <div class="layout">
         <aside class="panel">
           <h2>Paramètres</h2>
-          <p class="sub">Démo visuelle HeliosAstro avec placement planétaire sur roue zodiacale.</p>
+          <p class="sub">
+            Démo astrologique avancée avec calculs astronomiques approximatifs embarqués directement dans la page.
+          </p>
 
           <label>Nom</label>
-          <input id="name" placeholder="Ex. Thierry">
+          <input id="name" type="text" placeholder="Ex. Thierry">
 
           <div class="row">
             <div>
@@ -362,12 +356,12 @@
           </div>
 
           <label>Lieu</label>
-          <input id="place" value="Paris, France">
+          <input id="place" type="text" value="Paris, France">
 
           <div class="row">
             <div>
               <label>Fuseau horaire</label>
-              <input id="tz" value="+02:00">
+              <input id="tz" type="text" value="+02:00">
             </div>
             <div>
               <label>Rotation roue (°)</label>
@@ -376,11 +370,11 @@
           </div>
 
           <div class="buttons">
-            <button class="btn-primary" id="runBtn">Tracer la carte</button>
-            <button class="btn-ghost" id="exportBtn">Exporter SVG</button>
+            <button class="btn-primary" id="runBtn">Générer la carte</button>
+            <button class="btn-ghost" id="saveBtn">Exporter PNG</button>
           </div>
 
-          <div class="meta" id="statusText">
+          <div class="status" id="statusText">
             En attente…
           </div>
 
@@ -400,7 +394,7 @@
 
         <section class="panel">
           <div class="chartbox">
-            <svg id="chartSvg" viewBox="0 0 960 960" aria-label="Carte astrologique HeliosAstro"></svg>
+            <canvas id="astroCanvas" width="960" height="960"></canvas>
           </div>
 
           <div class="tablewrap">
@@ -412,45 +406,32 @@
   </section>
 
   <script>
-    const NS = "http://www.w3.org/2000/svg";
-    const XL = "http://www.w3.org/1999/xlink";
-    const BG_URL = "./images/zodiaque-modele.png";
+    const canvas = document.getElementById("astroCanvas");
+    const ctx = canvas.getContext("2d");
+    const zodiacImg = new Image();
+    zodiacImg.src = "images/zodiaque-modele.png";
 
     const SIGNS = [
       "Bélier","Taureau","Gémeaux","Cancer","Lion","Vierge",
       "Balance","Scorpion","Sagittaire","Capricorne","Verseau","Poissons"
     ];
 
-    const DEMO_BODIES = [
-      { name:"Soleil",   glyph:"☉", color:"#facc15", base:72,  speed:0.9856 },
-      { name:"Lune",     glyph:"☽", color:"#e5e7eb", base:210, speed:13.1764 },
-      { name:"Mercure",  glyph:"☿", color:"#fb923c", base:88,  speed:4.0923 },
-      { name:"Vénus",    glyph:"♀", color:"#f472b6", base:120, speed:1.6021 },
-      { name:"Mars",     glyph:"♂", color:"#ef4444", base:150, speed:0.5240 },
-      { name:"Jupiter",  glyph:"♃", color:"#a78bfa", base:95,  speed:0.0831 },
-      { name:"Saturne",  glyph:"♄", color:"#60a5fa", base:342, speed:0.0335 },
-      { name:"Uranus",   glyph:"♅", color:"#22c55e", base:55,  speed:0.0117 },
-      { name:"Neptune",  glyph:"♆", color:"#38bdf8", base:358, speed:0.0060 },
-      { name:"Pluton",   glyph:"♇", color:"#ec4899", base:302, speed:0.0040 }
+    const BODIES = [
+      { name:"Soleil",   glyph:"☉", color:"#facc15", period:365.256,   base:280.0 },
+      { name:"Lune",     glyph:"☽", color:"#e5e7eb", period:27.321661, base:218.3 },
+      { name:"Mercure",  glyph:"☿", color:"#fb923c", period:87.969,    base:60.8 },
+      { name:"Vénus",    glyph:"♀", color:"#f472b6", period:224.701,   base:85.0 },
+      { name:"Mars",     glyph:"♂", color:"#ef4444", period:686.98,    base:19.4 },
+      { name:"Jupiter",  glyph:"♃", color:"#a78bfa", period:4332.59,   base:238.0 },
+      { name:"Saturne",  glyph:"♄", color:"#60a5fa", period:10759.22,  base:266.6 },
+      { name:"Uranus",   glyph:"♅", color:"#22c55e", period:30688.5,   base:244.0 },
+      { name:"Neptune",  glyph:"♆", color:"#38bdf8", period:60182.0,   base:84.0 },
+      { name:"Pluton",   glyph:"♇", color:"#ec4899", period:90560.0,   base:294.0 }
     ];
 
-    function rev360(x){
-      x = x % 360;
-      return x < 0 ? x + 360 : x;
-    }
-
-    function degToSign(lon){
-      lon = rev360(lon);
-      const si = Math.floor(lon / 30);
-      const within = lon - si * 30;
-      const deg = Math.floor(within);
-      const min = Math.round((within - deg) * 60);
-      return deg + "°" + String(min).padStart(2,"0") + " " + SIGNS[si];
-    }
-
-    function daysSinceJ2000(d){
-      const j2000 = Date.UTC(2000,0,1,12,0,0) / 86400000;
-      return d.getTime() / 86400000 - j2000;
+    function rev360(v){
+      v = v % 360;
+      return v < 0 ? v + 360 : v;
     }
 
     function parseTZOffset(tz){
@@ -461,202 +442,170 @@
     }
 
     function localToUTC(dateStr,timeStr,tzStr){
-      const p1 = dateStr.split("-").map(Number);
-      const p2 = timeStr.split(":").map(Number);
-      const Y = p1[0], M = p1[1], D = p1[2], h = p2[0], m = p2[1];
+      const d = dateStr.split("-").map(Number);
+      const t = timeStr.split(":").map(Number);
       const offset = parseTZOffset(tzStr);
-      if(offset === null) return new Date(Date.UTC(Y,M-1,D,h,m,0));
-      return new Date(Date.UTC(Y,M-1,D,h,m,0) - offset * 60000);
+      const Y = d[0], M = d[1], D = d[2], h = t[0], m = t[1];
+      const base = Date.UTC(Y,M-1,D,h,m,0);
+      if(offset === null) return new Date(base);
+      return new Date(base - offset * 60000);
     }
 
-    function demoPositions(dt){
-      const D = daysSinceJ2000(dt);
-      return DEMO_BODIES.map(function(p){
+    function daysSinceJ2000(date){
+      const j2000 = Date.UTC(2000,0,1,12,0,0);
+      return (date.getTime() - j2000) / 86400000;
+    }
+
+    function degToSign(lon){
+      lon = rev360(lon);
+      const signIndex = Math.floor(lon / 30);
+      const within = lon - signIndex * 30;
+      const deg = Math.floor(within);
+      const min = Math.round((within - deg) * 60);
+      return deg + "°" + String(min).padStart(2,"0") + " " + SIGNS[signIndex];
+    }
+
+    function computeBodies(date){
+      const days = daysSinceJ2000(date);
+
+      return BODIES.map(body => {
+        const dailyMotion = 360 / body.period;
+        let lon = rev360(body.base + days * dailyMotion);
+
+        if(body.name === "Lune"){
+          lon = rev360(lon + 6 * Math.sin(days * 0.35));
+        }
+        if(body.name === "Mercure"){
+          lon = rev360(lon + 18 * Math.sin(days * 0.071));
+        }
+        if(body.name === "Vénus"){
+          lon = rev360(lon + 10 * Math.sin(days * 0.028));
+        }
+        if(body.name === "Mars"){
+          lon = rev360(lon + 8 * Math.sin(days * 0.012));
+        }
+
         return {
-          name:p.name,
-          glyph:p.glyph,
-          color:p.color,
-          lon:rev360(p.base + p.speed * D)
+          ...body,
+          lon
         };
       });
     }
 
-    function clearSvg(svg){
-      while(svg.firstChild) svg.removeChild(svg.firstChild);
-    }
-
-    function makeEl(svg,tag,attrs,text){
-      const el = document.createElementNS(NS,tag);
-      for(const k in attrs){
-        if(k === "href") el.setAttributeNS(XL,"href",attrs[k]);
-        else el.setAttribute(k,attrs[k]);
-      }
-      if(text !== undefined && text !== null) el.textContent = text;
-      svg.appendChild(el);
-      return el;
-    }
-
-    function polar(cx,cy,r,deg){
+    function polar(cx, cy, r, deg){
       const a = (deg - 90) * Math.PI / 180;
       return {
-        x:cx + r * Math.cos(a),
-        y:cy + r * Math.sin(a)
+        x: cx + r * Math.cos(a),
+        y: cy + r * Math.sin(a)
       };
     }
 
-    function describeArc(cx, cy, r, startAngle, endAngle){
-      const start = polar(cx, cy, r, endAngle);
-      const end = polar(cx, cy, r, startAngle);
-      let delta = endAngle - startAngle;
-      if(delta < 0) delta += 360;
-      const largeArcFlag = delta <= 180 ? "0" : "1";
-      return [
-        "M", start.x, start.y,
-        "A", r, r, 0, largeArcFlag, 0, end.x, end.y
-      ].join(" ");
+    function drawBackground(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = "#000";
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+
+      if(zodiacImg.complete){
+        ctx.drawImage(zodiacImg, 120, 120, 720, 720);
+      }
     }
 
     function drawChart(data){
-      const svg = document.getElementById("chartSvg");
-      clearSvg(svg);
+      drawBackground();
+
+      const cx = 480;
+      const cy = 480;
+      const rot = parseFloat(document.getElementById("rot").value || "0");
+      const placed = [];
+
+      data.forEach((p) => {
+        let angle = rev360(p.lon + rot);
+        let level = 0;
+
+        placed.forEach(prev => {
+          const diff = Math.abs(((angle - prev.angle + 540) % 360) - 180);
+          if(diff < 14) level = Math.max(level, prev.level + 1);
+        });
+
+        placed.push({angle, level});
+
+        const outerOrbit = 392 + level * 22;
+        const labelOrbit = 435 + level * 18;
+        const arcOrbit = 305 + level * 12;
+        const anchorOrbit = 248;
+
+        const anchor = polar(cx, cy, anchorOrbit, angle);
+        const planet = polar(cx, cy, outerOrbit, angle);
+        const label = polar(cx, cy, labelOrbit, angle);
+
+        ctx.beginPath();
+        ctx.strokeStyle = p.color;
+        ctx.lineWidth = 3;
+        ctx.arc(cx, cy, arcOrbit, (angle - 24 - 90) * Math.PI/180, (angle - 90) * Math.PI/180);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = p.color;
+        ctx.lineWidth = 2;
+        ctx.moveTo(anchor.x, anchor.y);
+        ctx.lineTo(planet.x, planet.y);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.fillStyle = "#08101f";
+        ctx.strokeStyle = p.color;
+        ctx.lineWidth = 3;
+        ctx.arc(planet.x, planet.y, 18, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = p.color;
+        ctx.font = "25px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(p.glyph, planet.x, planet.y + 1);
+
+        ctx.fillStyle = "#fff";
+        ctx.font = "12px Arial";
+        ctx.fillText(p.name, label.x, label.y - 8);
+
+        ctx.fillStyle = "#cfd6e6";
+        ctx.font = "11px Arial";
+        ctx.fillText(degToSign(p.lon), label.x, label.y + 10);
+      });
 
       const name = document.getElementById("name").value.trim() || "Consultant";
       const place = document.getElementById("place").value.trim();
       const date = document.getElementById("date").value;
       const time = document.getElementById("time").value;
-      const rot = parseFloat(document.getElementById("rot").value || "0");
 
-      const cx = 480;
-      const cy = 480;
+      ctx.fillStyle = "#fff";
+      ctx.font = "bold 18px Arial";
+      ctx.textAlign = "center";
+      ctx.fillText(name, 480, 892);
 
-      makeEl(svg,"rect",{x:0,y:0,width:960,height:960,fill:"#000"});
-      makeEl(svg,"image",{href:BG_URL,x:120,y:120,width:720,height:720,opacity:"1"});
-
-      const outerOrbit = 392;
-      const arcOrbit = 305;
-      const anchorOrbit = 250;
-
-      const placed = [];
-
-      data.forEach(function(p){
-        const angle = rev360(p.lon + rot);
-        let level = 0;
-
-        placed.forEach(function(prev){
-          const diff = Math.abs(((angle - prev.angle + 540) % 360) - 180);
-          if(diff < 14) level = Math.max(level, prev.level + 1);
-        });
-
-        placed.push({angle:angle, level:level});
-
-        const planetOrbit = outerOrbit + (level * 20);
-        const planetPos = polar(cx,cy,planetOrbit,angle);
-        const anchorPos = polar(cx,cy,anchorOrbit,angle);
-
-        const startArc = angle - 22;
-        const endArc = angle;
-        const curvePath = describeArc(cx, cy, arcOrbit + (level * 12), startArc, endArc);
-
-        makeEl(svg,"path",{
-          d:curvePath,
-          stroke:p.color,
-          "stroke-width":"3",
-          fill:"none",
-          opacity:"0.95"
-        });
-
-        makeEl(svg,"line",{
-          x1:polar(cx,cy,arcOrbit + (level * 12),angle).x,
-          y1:polar(cx,cy,arcOrbit + (level * 12),angle).y,
-          x2:anchorPos.x,
-          y2:anchorPos.y,
-          stroke:p.color,
-          "stroke-width":"2",
-          opacity:"0.9"
-        });
-
-        makeEl(svg,"circle",{
-          cx:planetPos.x,
-          cy:planetPos.y,
-          r:18,
-          fill:"#08101f",
-          stroke:p.color,
-          "stroke-width":"3"
-        });
-
-        makeEl(svg,"text",{
-          x:planetPos.x,
-          y:planetPos.y + 1,
-          fill:p.color,
-          "font-size":"25",
-          "text-anchor":"middle",
-          "dominant-baseline":"middle",
-          "font-family":"Segoe UI Symbol, Arial Unicode MS, serif"
-        },p.glyph);
-
-        const labelPos = polar(cx,cy,planetOrbit + 34,angle);
-
-        makeEl(svg,"text",{
-          x:labelPos.x,
-          y:labelPos.y - 8,
-          fill:"#ffffff",
-          "font-size":"12",
-          "text-anchor":"middle"
-        },p.name);
-
-        makeEl(svg,"text",{
-          x:labelPos.x,
-          y:labelPos.y + 10,
-          fill:"#cfd6e6",
-          "font-size":"11",
-          "text-anchor":"middle"
-        },degToSign(p.lon));
-      });
-
-      makeEl(svg,"text",{
-        x:480,
-        y:892,
-        fill:"#fff",
-        "font-size":"18",
-        "font-weight":"700",
-        "text-anchor":"middle"
-      },name);
-
-      makeEl(svg,"text",{
-        x:480,
-        y:918,
-        fill:"#cfd6e6",
-        "font-size":"13",
-        "text-anchor":"middle"
-      },[place, date ? date.split("-").reverse().join("/") : "", time].filter(Boolean).join(" • "));
+      ctx.fillStyle = "#cfd6e6";
+      ctx.font = "13px Arial";
+      ctx.fillText([place, date ? date.split("-").reverse().join("/") : "", time].filter(Boolean).join(" • "), 480, 918);
     }
 
     function renderTable(data){
       const table = document.getElementById("planetTable");
       let html = "<tr><th>Corps</th><th>Glyphe</th><th>Position</th><th>Longitude</th></tr>";
 
-      data.forEach(function(p){
-        html += "<tr><td><b>"+p.name+"</b></td><td style=\\"font-family:Segoe UI Symbol, Arial Unicode MS, serif;color:"+p.color+";font-size:20px;\\">"+p.glyph+"</td><td>"+degToSign(p.lon)+"</td><td>"+p.lon.toFixed(2)+"°</td></tr>";
+      data.forEach(p => {
+        html += `<tr>
+          <td><b>${p.name}</b></td>
+          <td style="font-size:20px;color:${p.color};">${p.glyph}</td>
+          <td>${degToSign(p.lon)}</td>
+          <td>${p.lon.toFixed(2)}°</td>
+        </tr>`;
       });
 
       table.innerHTML = html;
     }
 
-    function exportSvg(){
-      const svg = document.getElementById("chartSvg");
-      const source = new XMLSerializer().serializeToString(svg);
-      const blob = new Blob(['<?xml version="1.0"?>\\n' + source], {type:"image/svg+xml;charset=utf-8"});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "heliosastro-carte.svg";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
-
-    function runChart(){
+    function generateChart(){
       const date = document.getElementById("date").value;
       const time = document.getElementById("time").value || "22:00";
       const tz = document.getElementById("tz").value || "+02:00";
@@ -666,27 +615,35 @@
         return;
       }
 
-      const dt = localToUTC(date,time,tz);
-      const data = demoPositions(dt);
+      const utcDate = localToUTC(date, time, tz);
+      const data = computeBodies(utcDate);
 
       drawChart(data);
       renderTable(data);
 
       document.getElementById("statusText").textContent =
-        "Carte générée avec planètes extérieures, arcs de lecture, fond zodiacal et logo HeliosAstro intégré.";
+        "Carte générée avec calculs approximatifs embarqués, roue zodiacale et export PNG.";
     }
 
-    document.getElementById("runBtn").addEventListener("click",runChart);
-    document.getElementById("exportBtn").addEventListener("click",exportSvg);
+    function exportPNG(){
+      const link = document.createElement("a");
+      link.download = "heliosastro-carte.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }
 
-    (function init(){
+    document.getElementById("runBtn").addEventListener("click", generateChart);
+    document.getElementById("saveBtn").addEventListener("click", exportPNG);
+
+    zodiacImg.onload = () => {
       document.getElementById("date").value = "2025-06-03";
       document.getElementById("time").value = "22:00";
       document.getElementById("place").value = "Paris, France";
       document.getElementById("tz").value = "+02:00";
-      runChart();
-    })();
+      generateChart();
+    };
   </script>
 
 </body>
 </html>
+
