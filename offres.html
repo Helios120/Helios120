@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HeliosAstro — Offres astrologiques</title>
-  <meta name="description" content="Découvrez les offres HeliosAstro : transit astrologique, révolution solaire et thème astral complet avec paiement sécurisé PayPal." />
+  <title>HeliosAstro — Offres astrologiques professionnelles</title>
+  <meta name="description" content="Analyses astrologiques professionnelles : transit 3 mois, révolution solaire et thème astral complet. Paiement sécurisé PayPal." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="HeliosAstro — Offres astrologiques" />
-  <meta property="og:description" content="Transit astrologique, révolution solaire et thème astral complet avec paiement sécurisé." />
+  <meta property="og:title" content="HeliosAstro — Offres astrologiques professionnelles" />
+  <meta property="og:description" content="Transit 3 mois, révolution solaire et thème astral complet avec paiement sécurisé PayPal." />
   <meta property="og:image" content="https://heliosastro.com/images/og-image.jpg" />
   <meta property="og:url" content="https://heliosastro.com/offres.html" />
   <meta name="theme-color" content="#0b0b0f" />
@@ -24,8 +24,6 @@
       --muted:#aab3c5;
       --gold:#ffb24b;
       --gold2:#ffdd8f;
-      --paypal:#ffc439;
-      --paypal2:#ffb800;
       --shadow:0 20px 50px rgba(0,0,0,.35);
       --radius:24px;
       --max:1180px;
@@ -166,7 +164,6 @@
       padding:24px;
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
       min-height:100%;
     }
 
@@ -208,22 +205,23 @@
       line-height:1.6;
     }
 
-    .btn-paypal{
-      width:100%;
-      padding:14px;
-      border-radius:999px;
-      border:none;
-      background:var(--paypal);
-      color:#111;
-      font-weight:900;
-      font-size:14px;
-      cursor:pointer;
-      transition:background .15s ease, transform .15s ease;
+    .paypal-hosted{
+      margin-top:auto;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
     }
 
-    .btn-paypal:hover{
-      background:var(--paypal2);
-      transform:translateY(-1px);
+    .paypal-hosted > div{
+      width:100%;
+    }
+
+    .paypal-hosted form{
+      display:inline-grid !important;
+      justify-items:center;
+      align-content:start;
+      gap:0.5rem;
+      width:100%;
     }
 
     .info-card{
@@ -264,32 +262,15 @@
     }
 
     @media (max-width:980px){
-      .grid{
-        grid-template-columns:1fr;
-      }
-
-      .hero h1{
-        font-size:36px;
-      }
-
-      .hero p{
-        font-size:16px;
-      }
+      .grid{grid-template-columns:1fr}
+      .hero h1{font-size:36px}
+      .hero p{font-size:16px}
     }
 
     @media (max-width:720px){
-      .site-logo{
-        width:60px;
-        height:60px;
-      }
-
-      .brand-title{
-        font-size:20px;
-      }
-
-      .brand-sub{
-        font-size:11px;
-      }
+      .site-logo{width:60px;height:60px}
+      .brand-title{font-size:20px}
+      .brand-sub{font-size:11px}
     }
   </style>
 </head>
@@ -321,10 +302,10 @@
     <div class="wrap">
       <div class="hero-card">
         <div class="badge">Prestations • Paiement sécurisé • HeliosAstro</div>
-        <h1>Des lectures astrologiques structurées, claires et directement accessibles</h1>
+        <h1>Des analyses astrologiques structurées, claires et directement accessibles</h1>
         <p>
           Choisis la formule adaptée à ta demande : lecture ciblée à court terme, révolution solaire annuelle
-          ou thème astral complet. Paiement sécurisé via PayPal, traitement personnalisé ensuite par email.
+          ou thème astral complet. Paiement sécurisé PayPal, puis traitement personnalisé par email.
         </p>
       </div>
     </div>
@@ -347,13 +328,36 @@
             </ul>
           </div>
 
-          <form action="https://www.paypal.com/ncp/cart" method="post">
-            <input type="hidden" name="business" value="BTHYMAJN4UULE">
-            <input type="hidden" name="item_name" value="Transit astrologique 3 mois">
-            <input type="hidden" name="amount" value="25.00">
-            <input type="hidden" name="currency_code" value="EUR">
-            <button type="submit" class="btn-paypal">Payer avec PayPal</button>
-          </form>
+          <div class="paypal-hosted">
+            <div>
+              <style>
+                .pp-Z3SZPE6NUZYKG{
+                  text-align:center;
+                  border:none;
+                  border-radius:999px;
+                  width:100%;
+                  min-width:11.625rem;
+                  padding:0 2rem;
+                  height:2.875rem;
+                  font-weight:bold;
+                  background-color:#FFD140;
+                  color:#000000;
+                  font-family:"Helvetica Neue",Arial,sans-serif;
+                  font-size:1rem;
+                  line-height:1.25rem;
+                  cursor:pointer;
+                }
+              </style>
+              <form action="https://www.paypal.com/ncp/payment/Z3SZPE6NUZYKG" method="post" target="_blank">
+                <input class="pp-Z3SZPE6NUZYKG" type="submit" value="Payer avec PayPal" />
+                <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="Cartes bancaires et moyens de paiement" />
+                <section style="font-size:0.75rem;color:#aab3c5;">
+                  Optimisé par
+                  <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="PayPal" style="height:0.875rem;vertical-align:middle;" />
+                </section>
+              </form>
+            </div>
+          </div>
         </article>
 
         <article class="offer">
@@ -369,13 +373,36 @@
             </ul>
           </div>
 
-          <form action="https://www.paypal.com/ncp/cart" method="post">
-            <input type="hidden" name="business" value="BTHYMAJN4UULE">
-            <input type="hidden" name="item_name" value="Révolution solaire">
-            <input type="hidden" name="amount" value="35.00">
-            <input type="hidden" name="currency_code" value="EUR">
-            <button type="submit" class="btn-paypal">Payer avec PayPal</button>
-          </form>
+          <div class="paypal-hosted">
+            <div>
+              <style>
+                .pp-QF67W8ATHZX4U{
+                  text-align:center;
+                  border:none;
+                  border-radius:999px;
+                  width:100%;
+                  min-width:11.625rem;
+                  padding:0 2rem;
+                  height:2.875rem;
+                  font-weight:bold;
+                  background-color:#FFD140;
+                  color:#000000;
+                  font-family:"Helvetica Neue",Arial,sans-serif;
+                  font-size:1rem;
+                  line-height:1.25rem;
+                  cursor:pointer;
+                }
+              </style>
+              <form action="https://www.paypal.com/ncp/payment/QF67W8ATHZX4U" method="post" target="_blank">
+                <input class="pp-QF67W8ATHZX4U" type="submit" value="Payer avec PayPal" />
+                <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="Cartes bancaires et moyens de paiement" />
+                <section style="font-size:0.75rem;color:#aab3c5;">
+                  Optimisé par
+                  <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="PayPal" style="height:0.875rem;vertical-align:middle;" />
+                </section>
+              </form>
+            </div>
+          </div>
         </article>
 
         <article class="offer">
@@ -391,28 +418,49 @@
             </ul>
           </div>
 
-          <form action="https://www.paypal.com/ncp/cart" method="post">
-            <input type="hidden" name="business" value="BTHYMAJN4UULE">
-            <input type="hidden" name="item_name" value="Thème astral complet">
-            <input type="hidden" name="amount" value="59.00">
-            <input type="hidden" name="currency_code" value="EUR">
-            <button type="submit" class="btn-paypal">Payer avec PayPal</button>
-          </form>
+          <div class="paypal-hosted">
+            <div>
+              <style>
+                .pp-VQHAY46ZZU2YN{
+                  text-align:center;
+                  border:none;
+                  border-radius:999px;
+                  width:100%;
+                  min-width:11.625rem;
+                  padding:0 2rem;
+                  height:2.875rem;
+                  font-weight:bold;
+                  background-color:#FFD140;
+                  color:#000000;
+                  font-family:"Helvetica Neue",Arial,sans-serif;
+                  font-size:1rem;
+                  line-height:1.25rem;
+                  cursor:pointer;
+                }
+              </style>
+              <form action="https://www.paypal.com/ncp/payment/VQHAY46ZZU2YN" method="post" target="_blank">
+                <input class="pp-VQHAY46ZZU2YN" type="submit" value="Payer avec PayPal" />
+                <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="Cartes bancaires et moyens de paiement" />
+                <section style="font-size:0.75rem;color:#aab3c5;">
+                  Optimisé par
+                  <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="PayPal" style="height:0.875rem;vertical-align:middle;" />
+                </section>
+              </form>
+            </div>
+          </div>
         </article>
 
       </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="info-card">
+      <div class="info-card" style="margin-top:20px;">
         <h2 style="margin-bottom:14px;">Après paiement</h2>
         <p>
           Merci d’envoyer à <strong>heliosphotonic@gmail.com</strong> les éléments suivants :
           <strong>nom</strong>, <strong>date de naissance</strong>, <strong>heure de naissance</strong> et
-          <strong>lieu de naissance</strong>. Pour le livre <strong>Dieu est la lumière — Géométrie sacrée</strong>,
-          la page dédiée reste accessible avec liens directs vers <strong>FNAC</strong> et <strong>KOBO</strong>.
+          <strong>lieu de naissance</strong>.
+          <br><br>
+          Pour le livre <strong>Dieu est la lumière — Géométrie sacrée</strong>, la page dédiée reste accessible
+          avec les liens directs vers <strong>FNAC</strong> et <strong>Kobo</strong>.
         </p>
         <a class="book-link" href="livre.html">Voir la page du livre</a>
       </div>
@@ -423,8 +471,7 @@
     © HeliosAstro — astrologie, logiciel, géométrie sacrée
   </footer>
 
-  <script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="BTHYMAJN4UULE"></script>
-
 </body>
 </html>
+
 
