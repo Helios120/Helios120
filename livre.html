@@ -3,33 +3,284 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HeliosAstro — Livre</title>
-  <meta name="description" content="Page livre HeliosAstro." />
+  <title>Dieu est la lumière — Géométrie sacrée | HeliosAstro</title>
+  <meta name="description" content="Découvrez le livre Dieu est la lumière — Géométrie sacrée. Accès direct FNAC et Kobo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dieu est la lumière — Géométrie sacrée | HeliosAstro" />
+  <meta property="og:description" content="Le livre de Thierry Tafani et Atefeh Ghasemiyan, disponible en numérique." />
+  <meta property="og:image" content="https://heliosastro.com/images/og-image.jpg" />
+  <meta property="og:url" content="https://heliosastro.com/livre.html" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <link rel="canonical" href="https://heliosastro.com/livre.html" />
+
   <style>
     :root{
-      --bg:#07090f;--bg2:#0e1426;--panel:#111728;--panel2:#0b1020;
-      --line:rgba(255,255,255,.10);--text:#f5f7fb;--muted:#aab3c5;
-      --gold:#ffb24b;--gold2:#ffdd8f;--shadow:0 20px 50px rgba(0,0,0,.35);
-      --radius:24px;--max:1180px
+      --bg:#07090f;
+      --bg2:#0e1426;
+      --panel:#111728;
+      --panel2:#0b1020;
+      --line:rgba(255,255,255,.10);
+      --text:#f5f7fb;
+      --muted:#aab3c5;
+      --gold:#ffb24b;
+      --gold2:#ffdd8f;
+      --shadow:0 20px 50px rgba(0,0,0,.35);
+      --radius:24px;
+      --max:1180px;
     }
+
     *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:linear-gradient(180deg,var(--bg2),var(--bg))}
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top, rgba(63,85,160,.28) 0%, rgba(7,9,15,0) 30%),
+        linear-gradient(180deg,var(--bg2),var(--bg));
+    }
+
     a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
-    .topbar{background:rgba(7,9,15,.95);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:14px}
-    .brand img{width:72px;height:72px;object-fit:contain;border-radius:18px;background:#000;border:1px solid rgba(255,255,255,.12);padding:6px}
-    .brand-title{font-size:24px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-    .brand-sub{font-size:12px;color:var(--muted)}
-    .menu{display:flex;gap:16px;flex-wrap:wrap}
-    .menu a{color:var(--gold2);font-weight:800;font-size:14px}
-    .page{padding:34px 0}
-    .book{display:grid;grid-template-columns:320px 1fr;gap:22px;padding:24px;background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .book img{border-radius:18px;border:1px solid rgba(255,255,255,.08)}
-    .book p{line-height:1.8;color:var(--muted)}
-    footer{margin-top:30px;padding:26px 0 36px;color:#8e97aa;text-align:center;border-top:1px solid rgba(255,255,255,.06)}
-    @media (max-width:900px){.book{grid-template-columns:1fr}}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:40;
+      background:rgba(7,9,15,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+    }
+
+    .site-logo{
+      width:74px;
+      height:74px;
+      object-fit:contain;
+      border-radius:18px;
+      background:#000;
+      border:1px solid rgba(255,255,255,.12);
+      padding:6px;
+      box-shadow:0 12px 30px rgba(0,0,0,.35);
+      flex:0 0 auto;
+    }
+
+    .brand-title{
+      font-size:26px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      line-height:1;
+    }
+
+    .brand-sub{
+      margin-top:6px;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .menu{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .menu a{
+      color:var(--gold2);
+      font-weight:800;
+      font-size:14px;
+    }
+
+    .page{
+      padding:34px 0 40px;
+    }
+
+    .book-card{
+      display:grid;
+      grid-template-columns:380px 1fr;
+      gap:30px;
+      align-items:start;
+      padding:28px;
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .book-cover{
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+    }
+
+    .book-cover img{
+      width:100%;
+      max-width:360px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 12px 30px rgba(0,0,0,.28);
+    }
+
+    .book-content{
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:12px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,221,143,.25);
+      color:var(--gold2);
+      font-size:12px;
+      font-weight:800;
+      width:max-content;
+    }
+
+    h1{
+      margin:0 0 16px;
+      font-size:46px;
+      line-height:1.08;
+    }
+
+    .lead{
+      font-size:20px;
+      line-height:1.75;
+      color:#eef2fb;
+      margin:0 0 18px;
+    }
+
+    .body-copy{
+      font-size:16px;
+      line-height:1.8;
+      color:var(--muted);
+      margin:0 0 18px;
+    }
+
+    .details{
+      margin:0 0 20px;
+      padding:0;
+      list-style:none;
+    }
+
+    .details li{
+      margin:0 0 10px;
+      color:var(--text);
+      line-height:1.65;
+    }
+
+    .details strong{
+      color:var(--gold2);
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:8px;
+      margin-bottom:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:13px 20px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:14px;
+      transition:transform .15s ease, opacity .15s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      opacity:.96;
+    }
+
+    .btn-primary{
+      background:var(--gold);
+      color:#111;
+    }
+
+    .btn-secondary{
+      border:1px solid rgba(255,221,143,.45);
+      color:var(--gold2);
+    }
+
+    .quote-box{
+      margin-top:22px;
+      padding:18px 20px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+    }
+
+    .quote-box p{
+      margin:0;
+      color:#f6f7fb;
+      line-height:1.8;
+      font-size:15px;
+    }
+
+    footer{
+      margin-top:30px;
+      padding:26px 0 36px;
+      color:#8e97aa;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    @media (max-width:980px){
+      .book-card{
+        grid-template-columns:1fr;
+      }
+      .book-cover{
+        justify-content:center;
+      }
+      h1{
+        font-size:36px;
+      }
+      .lead{
+        font-size:18px;
+      }
+    }
+
+    @media (max-width:720px){
+      .site-logo{
+        width:60px;
+        height:60px;
+      }
+      .brand-title{
+        font-size:20px;
+      }
+      .brand-sub{
+        font-size:11px;
+      }
+      h1{
+        font-size:30px;
+      }
+      .lead{
+        font-size:17px;
+      }
+      .body-copy{
+        font-size:15px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -38,7 +289,7 @@
     <div class="wrap">
       <div class="nav">
         <div class="brand">
-          <img src="logo-heliosastro.png" alt="Logo HeliosAstro">
+          <img src="./logo-heliosastro.png" alt="Logo HeliosAstro" class="site-logo">
           <div>
             <div class="brand-title">HeliosAstro</div>
             <div class="brand-sub">Astrologie héliocentrique • Géométrie sacrée • Analyse avancée</div>
@@ -46,7 +297,7 @@
         </div>
 
         <nav class="menu">
-          <a href="index.html">Accueil</a>
+          <a href="/">Accueil</a>
           <a href="logiciel.html">Logiciel</a>
           <a href="offres.html">Offres</a>
           <a href="livre.html">Livre</a>
@@ -58,18 +309,53 @@
 
   <section class="page">
     <div class="wrap">
-      <div class="book">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3kU5wmsv3hlNtbIUQ_NWfEqld0-z1d4P7DiZdtY-VoVE2LKwvBXuUOCSpT5Bhe_8l9_kvYm_BBGjvNXoPJRNftegM9P3MUWl38PchpuGuo77jkxKJ8E3u02q-XJOLnFP9DstQHApJLvM/s900/cover.jpg" alt="Dieu est la lumière">
-        <div>
+      <div class="book-card">
+        <div class="book-cover">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3kU5wmsv3hlNtbIUQ_NWfEqld0-z1d4P7DiZdtY-VoVE2LKwvBXuUOCSpT5Bhe_8l9_kvYm_BBGjvNXoPJRNftegM9P3MUWl38PchpuGuo77jkxKJ8E3u02q-XJOLnFP9DstQHApJLvM/s900/cover.jpg" alt="Couverture du livre Dieu est la lumière — Géométrie sacrée">
+        </div>
+
+        <div class="book-content">
+          <div class="eyebrow">Livre • Géométrie sacrée</div>
+
           <h1>Dieu est la lumière — Géométrie sacrée</h1>
-          <p>Page de présentation professionnelle du livre avec visuel de couverture, résumé, univers sacré et cohérence avec la marque HeliosAstro.</p>
-          <p>Tu pourras ensuite ajouter un lien Amazon, un bouton PayPal, un QR code ou des extraits.</p>
+
+          <p class="lead">
+            Plus qu’un livre, une immersion dans la lumière, la géométrie sacrée et l’intelligence symbolique du monde.
+          </p>
+
+          <p class="body-copy">
+            À travers une lecture symbolique et sensible, cet ouvrage propose une exploration de la lumière comme principe d’ordre,
+            de forme et de révélation. Il ouvre un espace de réflexion sur la structure du visible, la beauté des formes sacrées
+            et le lien profond entre conscience, architecture et perception.
+          </p>
+
+          <ul class="details">
+            <li><strong>Auteurs :</strong> Tafani Thierry &amp; Ghasemiyan Atefeh</li>
+            <li><strong>Univers :</strong> lumière, symbolisme, géométrie sacrée, structure cosmique</li>
+            <li><strong>Approche :</strong> spirituelle, visuelle, intuitive et conceptuelle</li>
+            <li><strong>Formats :</strong> lecture numérique via FNAC et Kobo</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="https://www.fnac.com/livre-numerique/a15115711/Tafani-Thierry-Dieu-est-la-lumiere" target="_blank" rel="noopener noreferrer">Acheter le livre sur FNAC</a>
+            <a class="btn btn-secondary" href="https://www.kobo.com/ww/en/ebook/dieu-est-la-lumiere?srsltid=AfmBOopkOyGDmuhR0g8-Tf6O-xcGqorTKVLI3WueOhXb833yYW4XY_Bw" target="_blank" rel="noopener noreferrer">Lire le livre sur Kobo</a>
+          </div>
+
+          <div class="quote-box">
+            <p>
+              Un livre pensé comme une traversée : de la lumière vers la forme, de la forme vers le sens,
+              et du sens vers une lecture plus profonde du monde.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>© HeliosAstro</footer>
+  <footer>
+    © HeliosAstro — astrologie, logiciel, géométrie sacrée
+  </footer>
 
 </body>
 </html>
+
