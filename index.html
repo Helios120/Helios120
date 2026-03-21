@@ -12,18 +12,6 @@
   <meta property="og:image" content="https://heliosastro.com/images/og-image.jpg" />
   <meta name="theme-color" content="#0b0b0f" />
   <link rel="canonical" href="https://heliosastro.com/" />
-  <link rel="preload" as="image" href="logo-heliosastro.png" />
-  <link rel="preload" as="image" href="images/mandala-sacree.png" />
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"HeliosAstro",
-    "url":"https://heliosastro.com",
-    "logo":"https://heliosastro.com/logo-heliosastro.png"
-  }
-  </script>
 
   <style>
     :root{
@@ -289,54 +277,6 @@
       line-height:1.6;
     }
 
-    .paypal-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .paypal-card{
-      padding:24px;
-    }
-
-    .price{
-      font-size:34px;
-      font-weight:900;
-      color:var(--gold2);
-      margin:10px 0 14px;
-    }
-
-    .paypal-card p{
-      color:var(--muted);
-      line-height:1.7;
-      margin:0 0 18px;
-    }
-
-    .btn-paypal{
-      width:100%;
-      padding:14px;
-      border-radius:999px;
-      border:none;
-      background:#ffc439;
-      color:#111;
-      font-weight:900;
-      font-size:14px;
-      cursor:pointer;
-      transition:background .15s ease, transform .15s ease;
-    }
-
-    .btn-paypal:hover{
-      background:#ffb800;
-      transform:translateY(-1px);
-    }
-
-    .paypal-help{
-      margin-top:12px;
-      font-size:13px;
-      color:var(--muted);
-      line-height:1.6;
-    }
-
     .book{
       display:grid;
       grid-template-columns:260px 1fr;
@@ -368,7 +308,6 @@
       .hero-grid,
       .grid-3,
       .showcase-grid,
-      .paypal-grid,
       .book{
         grid-template-columns:1fr;
       }
@@ -436,7 +375,6 @@
             Une approche visuelle et structurée de l’astrologie héliocentrique,
             pensée pour l’analyse, l’exploration symbolique et la présentation de thèmes personnalisés.
           </p>
-
           <div class="actions">
             <a class="btn btn-primary" href="logiciel.html">Ouvrir le logiciel</a>
             <a class="btn btn-secondary" href="offres.html">Voir les offres</a>
@@ -524,66 +462,6 @@
 
   <section class="section">
     <div class="wrap">
-      <h2 style="margin-bottom:16px">Paiement sécurisé</h2>
-
-      <div class="paypal-grid">
-
-        <article class="card paypal-card">
-          <small style="color:var(--gold2);font-weight:800;text-transform:uppercase;letter-spacing:1px;">Transit</small>
-          <h3>Transit astrologique 3 mois</h3>
-          <div class="price">25€</div>
-          <p>Analyse ciblée des influences planétaires sur 3 mois.</p>
-
-          <form action="https://www.paypal.com/ncp/cart" method="post">
-            <input type="hidden" name="business" value="BTHYMAJN4UULE">
-            <input type="hidden" name="item_name" value="Transit astrologique 3 mois">
-            <input type="hidden" name="amount" value="25.00">
-            <input type="hidden" name="currency_code" value="EUR">
-            <button type="submit" class="btn-paypal">Payer avec PayPal</button>
-          </form>
-        </article>
-
-        <article class="card paypal-card">
-          <small style="color:var(--gold2);font-weight:800;text-transform:uppercase;letter-spacing:1px;">Annuel</small>
-          <h3>Révolution solaire</h3>
-          <div class="price">35€</div>
-          <p>Lecture annuelle complète autour du retour solaire.</p>
-
-          <form action="https://www.paypal.com/ncp/cart" method="post">
-            <input type="hidden" name="business" value="BTHYMAJN4UULE">
-            <input type="hidden" name="item_name" value="Révolution solaire">
-            <input type="hidden" name="amount" value="35.00">
-            <input type="hidden" name="currency_code" value="EUR">
-            <button type="submit" class="btn-paypal">Payer avec PayPal</button>
-          </form>
-        </article>
-
-        <article class="card paypal-card">
-          <small style="color:var(--gold2);font-weight:800;text-transform:uppercase;letter-spacing:1px;">Complet</small>
-          <h3>Thème astral complet</h3>
-          <div class="price">59€</div>
-          <p>Étude complète de thème astral avec lecture approfondie.</p>
-
-          <form action="https://www.paypal.com/ncp/cart" method="post">
-            <input type="hidden" name="business" value="BTHYMAJN4UULE">
-            <input type="hidden" name="item_name" value="Thème astral complet">
-            <input type="hidden" name="amount" value="59.00">
-            <input type="hidden" name="currency_code" value="EUR">
-            <button type="submit" class="btn-paypal">Payer avec PayPal</button>
-          </form>
-        </article>
-
-      </div>
-
-      <p class="paypal-help">
-        Après paiement, merci d’envoyer votre nom, votre date, votre heure et votre lieu de naissance à
-        <strong>heliosphotonic@gmail.com</strong>.
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
       <div class="card book">
         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3kU5wmsv3hlNtbIUQ_NWfEqld0-z1d4P7DiZdtY-VoVE2LKwvBXuUOCSpT5Bhe_8l9_kvYm_BBGjvNXoPJRNftegM9P3MUWl38PchpuGuo77jkxKJ8E3u02q-XJOLnFP9DstQHApJLvM/s900/cover.jpg" alt="Livre Dieu est la lumière — Géométrie sacrée" loading="lazy">
         <div>
@@ -604,8 +482,7 @@
     © HeliosAstro — astrologie, logiciel, géométrie sacrée
   </footer>
 
-  <script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="BTHYMAJN4UULE"></script>
-
 </body>
 </html>
+
 
